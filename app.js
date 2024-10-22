@@ -1,31 +1,31 @@
-const canciones = [
+const playList = [
     {
-      nombre: 'Sexo con Cristina',
-      artista: 'Anuel AA',
+      title: 'Sexo con Cristina',
+      artist: 'Anuel AA',
       img: 'assets/image/anuel.jpg',
       ruta: 'assets/music/y2mate.com - Anuel AA  Sexo Con Cristina Official Audio.mp3'
     },
     {
-      nombre: 'Tiro Tiro',
-      artista: 'Ilan Amores',
+      title: 'Tiro Tiro',
+      artist: 'Ilan Amores',
       img: 'assets/image/tirotiro.jpg',
       ruta: 'assets/music/y2mate.com - Ilan Amores  Tiro Tiro feat Damas Gratis Video Oficial.mp3'
     },
     {
-      nombre: 'Pretextos',
-      artista: 'Maluma',
+      title: 'Pretextos',
+      artist: 'Maluma',
       img: 'assets/image/pretextos.jpg',
       ruta: 'assets/music/y2mate.com - Maluma  Pretextos Cover Audio ft Cosculluela.mp3'
     },
     {
-      nombre: 'Perros',
-      artista: 'Moebiuz',
+      title: 'Perros',
+      artist: 'Moebiuz',
       img: 'assets/image/la grasa.jpg',
       ruta: 'assets/music/y2mate.com - Perros.mp3'
     },
     {
-      nombre: 'La resaka',
-      artista: 'SuperMerk2',
+      title: 'La resaka',
+      artist: 'SuperMerk2',
       img: 'assets/image/superM.jpg',
       ruta: 'assets/music/y2mate.com - SuperMerk2  La resaka Remastered 2023 Audio.mp3'
     },
@@ -51,10 +51,10 @@ const canciones = [
   
   
   function cargarCancion(indice) {
-    songName.textContent = canciones[indice].nombre;
-    artista.textContent = canciones[indice].artista
-    imagen.src = canciones[indice].img;
-    audioSource.src = canciones[indice].ruta;
+    songName.textContent = playList[indice].title;
+    artista.textContent = playList[indice].artist
+    imagen.src = playList[indice].img;
+    audioSource.src = playList[indice].ruta;
     audio.load();
   }
   
@@ -74,21 +74,21 @@ const canciones = [
   
  
   following.addEventListener('click', () => {
-    indiceActual = (indiceActual + 1) % canciones.length;
+    indiceActual = (indiceActual + 1) % playList.length;
     cargarCancion(indiceActual); 
     audio.play(); 
   })
   
   
   former.addEventListener('click', () => {
-    indiceActual = (indiceActual - 1 + canciones.length) % canciones.length; // Cambiar al índice anterior, con ajuste para el caso negativo
+    indiceActual = (indiceActual - 1 + playList.length) % playList.length; 
     cargarCancion(indiceActual); 
     audio.play();
   })
   
 
   audio.addEventListener('ended', () => {
-    indiceActual = (indiceActual + 1) % canciones.length; 
+    indiceActual = (indiceActual + 1) % playList.length; 
     cargarCancion(indiceActual);
     audio.play(); 
   });
